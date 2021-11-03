@@ -30,8 +30,8 @@ def read_template(path):
 def parse_template(content):
     # r"\{(\w*)\}*"
     # r"\{(.*?)\}"
-    languagePartsList = regex.findall(r"\{(\w*)\}*",content)
-    contentWithoutLanguageParts = regex.sub(r"\{(\w*)\}*","{}",content)
+    languagePartsList = regex.findall(r"\{(.*?)\}",content)
+    contentWithoutLanguageParts = regex.sub(r"\{(.*?)\}","{}",content)
     return contentWithoutLanguageParts,(*languagePartsList,)
    
 def merge(bareContent,languageParts):
